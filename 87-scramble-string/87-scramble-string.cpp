@@ -1,7 +1,7 @@
 #include<bits/stdc++.h>
 class Solution {
 public:
-map<string,int> mp;    
+map<string,bool> mp;    
 bool solve(string A,string B)
 {
     if(A.compare(B)==0)
