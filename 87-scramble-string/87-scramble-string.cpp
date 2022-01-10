@@ -5,9 +5,9 @@ map<string,int> mp;
 bool solve(string A,string B)
 {
     if(A.compare(B)==0)
-       return 1;
+       return true;
     if(A.length()<=1)
-       return 0;
+       return false;
     string key=A+" "+B;
     if(mp.find(key)!=mp.end())
         return mp[key];
