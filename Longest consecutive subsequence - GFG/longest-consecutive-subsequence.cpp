@@ -13,26 +13,26 @@ class Solution{
     int findLongestConseqSubseq(int arr[], int N)
     {
       //Your code here
-      map<int,int> mp;
-      int count=0,res=0,prev;
-      for(int i=0;i<N;i++)
-      {
-          mp[arr[i]]=1;
-      }
-     // cout<<mp.begin()->first<<" ";
-    for(auto it=mp.begin();it!=mp.end();it++)
-      {
-          if(it==mp.begin())
-             count=1;
-          else
+          map<int,int> mp;
+          int count=1,res=1,prev;
+          for(int i=0;i<N;i++)
           {
-              if(it->first==prev+1) count++;
-              else count=1;
+              mp[arr[i]]=1;
           }
-          prev=it->first;
-          res=max(res,count);
-      }
-      return res;
+        
+         auto temp=mp.begin();
+         prev=temp->first;
+         temp++;
+         for(auto it=temp;it!=mp.end();it++)
+         {
+            
+                if(it->first==prev+1) count++;
+                else count=1;
+              
+                 prev=it->first;
+                 res=max(res,count);
+         }
+          return res;
     }
 };
 
