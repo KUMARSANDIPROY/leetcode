@@ -19,35 +19,29 @@ public:
             for(int j=0;j<v.size();j++)
             {
                  int x=i*v[j]+c;
-                 c=0;
-               
                 
-                // if(x>=10)
-                 {
-                     v[j]=(x%10);
-                     c=x/10;
+                
+                 v[j]=(x%10);
+                 c=x/10;
                      
-                 }
+            }  
               
                 
-                 if(j==v.size()-1 && c>0)
-                 {
+                
                    
                      while(c>0)
                      {
                          v.push_back(c%10);
                          c/=10;
-                         flag=1;
+                        
                      }
                       
-                 }
-                   
-                 if(flag==1) break;
+               
                
             }
             
                
-        }
+        
         reverse(v.begin(),v.end());
         
         return v;
