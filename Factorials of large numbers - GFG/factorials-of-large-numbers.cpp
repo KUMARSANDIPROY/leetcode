@@ -14,36 +14,34 @@ public:
         int c=0,flag=0;
         v.push_back(1);
         for(int i=2;i<=N;i++)
-        {  flag=0;
+        {  
+            flag=0;
             for(int j=0;j<v.size();j++)
             {
                  int x=i*v[j]+c;
                  c=0;
-                // cout<<x<<" ";
+               
                 
-                 if(x>=10)
+                // if(x>=10)
                  {
                      v[j]=(x%10);
                      c=x/10;
                      
                  }
-                 else
-                 {
-                     v[j]=x;
-                 }
-                 // if(i==6) cout<<"c"<<c<<"size"<<v.size()<<"j"<<j<<" "<<v[2];
+              
+                
                  if(j==v.size()-1 && c>0)
                  {
-                   // cout<<"y";
+                   
                      while(c>0)
                      {
                          v.push_back(c%10);
                          c/=10;
                          flag=1;
                      }
-                      //cout<<c<<"\n ";
+                      
                  }
-                   //cout<<j<<v.size()<<flag<<" ";
+                   
                  if(flag==1) break;
                
             }
