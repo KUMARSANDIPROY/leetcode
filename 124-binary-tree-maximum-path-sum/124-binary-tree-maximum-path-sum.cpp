@@ -15,11 +15,11 @@ public:
     {
         if(root==NULL) return 0;
         
-        int lsum=solve(root->left,max_sum);
-        int rsum=solve(root->right,max_sum);
+        int lsum=max(0,solve(root->left,max_sum));
+        int rsum=max(0,solve(root->right,max_sum));
         max_sum=max(max_sum,root->val+lsum+rsum);
         
-        return max(0,root->val+max(lsum,rsum));
+        return root->val+max(lsum,rsum);
         
     }
     
