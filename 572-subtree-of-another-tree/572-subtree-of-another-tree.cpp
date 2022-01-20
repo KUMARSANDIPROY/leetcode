@@ -15,24 +15,18 @@ public:
     {
         if(root1==NULL || subroot==NULL)
            return root1==NULL && subroot==NULL;
-        bool l,r;
         if(root1->val!=subroot->val)
             return false;
-         l=issametree(root1->left,subroot->left);
-         r=issametree(root1->right,subroot->right);
-
-        if(l && r) return true;
-        return false;
+       
+        return issametree(root1->left,subroot->left) && issametree(root1->right,subroot->right);
+ ;
     }
     
     bool isSubtree(TreeNode* root, TreeNode* subRoot) {
-        //if(root==NULL && subRoot==NULL) return true;
         if(root==NULL && subRoot!=NULL) return false;
         if(issametree(root,subRoot)) return true;
-      
-        bool l=isSubtree(root->left,subRoot);
-        bool r=isSubtree(root->right,subRoot);
-        return r || l;
+     
+        return isSubtree(root->left,subRoot) || isSubtree(root->right,subRoot);
         
         
         
