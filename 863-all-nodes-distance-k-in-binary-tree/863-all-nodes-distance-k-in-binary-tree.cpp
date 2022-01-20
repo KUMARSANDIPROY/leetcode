@@ -9,7 +9,7 @@
  */
 class Solution {
 public:
-    void parent_find(TreeNode* root,map<TreeNode*,TreeNode*> &parent)
+    void parent_find(TreeNode* root,map<TreeNode*,TreeNode*> &parent)//finding parent of each node and store into a map
     {
         
         queue<TreeNode*> q;
@@ -51,7 +51,7 @@ public:
         while(!q.empty())
         {
             int l=q.size();
-            if(q.front().second==k) break;
+            if(q.front().second==k) break;//all nodes with k dsitance is in the queue
             for(int i=0;i<l;i++)
             {
                 TreeNode *temp=q.front().first;
