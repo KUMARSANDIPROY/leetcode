@@ -9,38 +9,38 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+class Solution {//striver
 public:
-  
-
-    
     vector<int> inorderTraversal(TreeNode* root) {
-        
-        vector<int> v;
-        stack<TreeNode*> st;
-        TreeNode* temp=root;
-      
-        while(1)
+        vector<int>inorder;
+        TreeNode *cur=root;
+        while(cur!=NULL)
         {
-            if(temp!=NULL) 
+            if(cur->left==NULL)
             {
-                st.push(temp);
-                temp=temp->left;
-                
+                inorder.push_back(cur->val);
+                cur=cur->right;
             }
             else
             {
-                if(st.empty()) break;
-                temp=st.top();
-                v.push_back(temp->val);
-                st.pop();
-                temp=temp->right;
-               
+                TreeNode *prev=cur->left;
+                while(prev->right!=NULL && prev->right!=cur)
+                    prev=prev->right;
+                
+                if(prev->right==NULL)
+                {
+                    prev->right=cur;
+                    cur=cur->left;
+                }
+                if(prev->right==cur)
+                {
+                    prev->right=NULL;
+                    inorder.push_back(cur->val);
+                    cur=cur->right;
+                }
             }
         }
-        
-        return v;
-        
+        return inorder;
         
     }
 };
