@@ -107,7 +107,7 @@ class Solution {
     int diameter(Node* root) {
         // Your code here
         int res=0;
-        int x=solve(root,res);
+        solve(root,res);
         return res;
     }
 };
