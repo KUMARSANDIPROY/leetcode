@@ -48,7 +48,7 @@ class Solution{
         if(lf>rt)
            return NULL;
         Node *res=new Node(pre[idx++]);
-        res->left=res->right=NULL;
+        //res->left=res->right=NULL;
         if(lf==rt) return res;  
         else
         {
