@@ -99,7 +99,7 @@ class Solution {
         // Your Code Here
         vector<int> ans;
         map<int ,Node*>mp;
-        queue<pair<Node*,int>> q;
+        queue<pair<Node*,int>> q;//to store the vertical line number
         if(root==NULL) return ans;
         q.push({root,0});
         
