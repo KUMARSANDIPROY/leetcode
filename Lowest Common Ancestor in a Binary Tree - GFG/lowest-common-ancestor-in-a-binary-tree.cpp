@@ -75,21 +75,15 @@ class Solution
          cout<<i->data<<" ";   
          
          cout<<endl<<endl;*/
-       
-       for(int i=v1.size()-1;i>=0;i--)
-       {
-           for(int j=v2.size()-1;j>=0;j--)
-           {
-               if(v1[i]->data==v2[j]->data)
-                 {
-                    // cout<<v1[i]->data<<endl;
-                     flag=v1[i];
-                     break;
-                 }
-                 if(flag!=NULL) break;
-           }
-       }
-       return flag;
+     int l=min(v1.size(),v2.size());
+     int i=0;
+     while(i<l)
+     {
+         if(v1[i]!=v2[i])
+           break;
+         i++;  
+     }
+     return v1[i-1];
        
     }
 };
