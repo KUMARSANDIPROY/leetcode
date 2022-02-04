@@ -110,7 +110,7 @@ class Solution{
         // Add your code here
         if(!root) return 0;
         if(mp.find(root)!=mp.end()) return mp[root];
-        //if(root->right==NULL && root->right==NULL) return root->data;
+        
         
         int child_sum=getMaxSum(root->left)+getMaxSum(root->right);
         int grand_child_sum=0;
