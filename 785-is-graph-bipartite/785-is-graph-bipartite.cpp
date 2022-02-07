@@ -3,7 +3,7 @@ public:
     bool dfs(vector<vector<int>> graph,vector<int> &color,int node)
     {
        
-        
+        if(color[node]==-1) color[node]=1;
         for(auto it:graph[node])
         {
            if(color[it]==-1)
@@ -12,7 +12,7 @@ public:
               if(dfs(graph,color,it)==false)
                   return false;
            }
-            else if(color[it]!=1)
+            else if(color[it]!=-1)
             {
                 if(color[it]==color[node])
                     return false;
@@ -28,8 +28,11 @@ public:
         for(int i=0;i<graph.size();i++)
         {
             if(color[i]==-1)
+            {
+                //color[i]=1;
                 if(dfs(graph,color,i)==false)
                     return false;
+            }
         } 
         return true;
     }
