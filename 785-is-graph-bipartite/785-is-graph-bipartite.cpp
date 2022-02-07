@@ -3,7 +3,7 @@ public:
     bool dfs(vector<vector<int>> graph,vector<int> &color,int node)
     {
        
-        if(color[node]==-1) color[node]=1;
+        if(color[node]==-1) color[node]=1;//for the 1st node of any component which is not colored yet
         for(auto it:graph[node])
         {
            if(color[it]==-1)
