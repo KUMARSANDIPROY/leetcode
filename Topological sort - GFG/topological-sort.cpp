@@ -7,30 +7,45 @@ class Solution
 {
 	public:
 	//Function to return list containing vertices in Topological order. 
-	vector<int> res;
-	void dfs(vector<int> adj[], vector<int> &visited,int node)
+	vector<int> topoSort(int V, vector<int> adj[])
 	{
-	    visited[node]=1;
+	    unordered_map<int,int> indegree;
+	     for(int i=0;i<V;i++)
+	      indegree[i]=0;
 	    
-	    for(int i: adj[node])
-	    {
-	        if(visited[i]==0)
-	           dfs(adj,visited,i);
-	    }
-	    res.push_back(node);
-	}
-	vector<int> topoSort(int V, vector<int> adj[]) 
-	{
-	    // code here
-	    vector<int> visited(V,0);
 	    for(int i=0;i<V;i++)
 	    {
-	        if(visited[i]==0)
-	        dfs(adj,visited,i);          
+	        for(int it: adj[i])
+	        {
+	            indegree[it]++;
+	        }
 	    }
-	    reverse(res.begin(),res.end());
+	    
+	    queue<int> q;
+	    
+	    for(auto it=indegree.begin();it!=indegree.end();it++)
+	    {
+	        if(it->second==0)
+	           q.push(it->first);
+	    }
+	    vector<int> res;
+	  
+	    while(!q.empty())
+	    {
+	         // cout<<"kk.s";
+	        int temp=q.front();
+	        q.pop();
+	        res.push_back(temp);
+	        //cout<<temp<<" ";
+	        for(auto it:adj[temp])
+	        {
+	            indegree[it]--;
+	            if(indegree[it]==0)
+	               q.push(it);
+	        }
+	    }
 	    return res;
-	     
+	    
 	}
 };
 
