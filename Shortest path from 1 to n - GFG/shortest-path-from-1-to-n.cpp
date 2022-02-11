@@ -12,8 +12,7 @@ using namespace std;
 class Solution{   
 public:
     int minimumStep(int n){
-        //complete the function here
-        //int count =ceil(log(n)/log(3));
+       
         int count=0;
         while(n>1)
         {
