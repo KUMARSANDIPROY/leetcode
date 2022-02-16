@@ -32,17 +32,12 @@ class Solution
 	    q.push({x1, y1});
 	    visited[x1][y1] = 0;
 	    
-	   // int ans = 0;
-	   // while(!q.empty()){
-	        
-	   //     int size = q.size();
-	   //     ans++;
-	       // while(size != 0)
+	 
 	       
 	           while(!q.empty()) {
 	            pair<int,int>p = q.front();
 	            q.pop();
-	           // ans++;
+	       
 	            int xx = p.first;
 	            int yy = p.second;
 	            
@@ -61,9 +56,9 @@ class Solution
 	                }
 	            }
 	           
-	           /// size--;
+	           
 	        }
-	    //}
+	   
 	    
 	    
 	    return visited[tx][ty];
