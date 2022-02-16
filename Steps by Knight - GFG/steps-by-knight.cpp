@@ -8,8 +8,8 @@ class Solution
 {
     public:
      
-    bool isValid(int i, int j, int n, vector<vector<bool>>&visited){
-        if(i>=0 && i<n && j>=0 && j<n && visited[i][j] == false){
+    bool isValid(int i, int j, int n, vector<vector<int>>&visited){
+        if(i>=0 && i<n && j>=0 && j<n && visited[i][j] == 0){
             return true;
         }
         return false;
@@ -26,21 +26,23 @@ class Solution
 	    
 	    if(x1 == tx && y1 == ty) return 0;
 	    
-	    vector<vector<bool>>visited(n, vector<bool>(n, false));
+	    vector<vector<int>>visited(n, vector<int>(n, 0));
 	    
 	    queue<pair<int, int>>q;
 	    q.push({x1, y1});
 	    visited[x1][y1] = true;
 	    
-	    int ans = 0;
-	    while(!q.empty()){
+	   // int ans = 0;
+	   // while(!q.empty()){
 	        
-	        int size = q.size();
-	        ans++;
-	        while(size != 0){
+	   //     int size = q.size();
+	   //     ans++;
+	       // while(size != 0)
+	       
+	           while(!q.empty()) {
 	            pair<int,int>p = q.front();
 	            q.pop();
-	            
+	           // ans++;
 	            int xx = p.first;
 	            int yy = p.second;
 	            
@@ -51,20 +53,20 @@ class Solution
 	                int nx = xx + ax[i];
 	                int ny = yy + ay[i];
 	                
-	                if(nx == tx && ny == ty) return ans;
+	               if(nx == tx && ny == ty) return visited[xx][yy];
 	                
 	                if(isValid(nx, ny, n, visited)){
-	                    visited[nx][ny] = true;
+	                    visited[nx][ny] = visited[xx][yy]+1;
 	                    q.push({nx, ny});
 	                }
 	            }
 	           
-	            size--;
+	           /// size--;
 	        }
-	    }
+	    //}
 	    
 	    
-	    return ans;
+	    return visited[tx][ty];
 	}
 };
 
