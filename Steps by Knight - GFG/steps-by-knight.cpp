@@ -30,7 +30,7 @@ class Solution
 	    
 	    queue<pair<int, int>>q;
 	    q.push({x1, y1});
-	    visited[x1][y1] = true;
+	    visited[x1][y1] = 0;
 	    
 	   // int ans = 0;
 	   // while(!q.empty()){
@@ -53,7 +53,7 @@ class Solution
 	                int nx = xx + ax[i];
 	                int ny = yy + ay[i];
 	                
-	               if(nx == tx && ny == ty) return visited[xx][yy];
+	               if(nx == tx && ny == ty) return visited[xx][yy]+1;
 	                
 	                if(isValid(nx, ny, n, visited)){
 	                    visited[nx][ny] = visited[xx][yy]+1;
