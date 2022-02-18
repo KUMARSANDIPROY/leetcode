@@ -12,7 +12,8 @@ class Solution{
     long long trappingWater(int arr[], int n){
         // code here
         
-        int lm[n],rm[n];
+        int lm[n];//stores the left max element
+        int rm[n];//stores the right mnost element
         int lmax=0;
         for(int i=0;i<n;i++)
         {
