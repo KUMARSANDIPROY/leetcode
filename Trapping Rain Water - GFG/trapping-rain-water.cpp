@@ -16,8 +16,7 @@ class Solution{
         int lmax=0;
         for(int i=0;i<n;i++)
         {
-            //lm[i]=*max_element(arr,arr+i);
-          //cout<<lm[i]<<" ";
+           
           if(lmax<arr[i])
              lmax=arr[i];
         lm[i]=lmax;     
@@ -27,8 +26,7 @@ class Solution{
        int rmax=0;
           for(int i=n-1;i>=0;i--)
         {
-            //rm[i]=*max_element(arr+i,arr+n);
-           // cout<<rm[i]<<" ";
+            
            if(rmax<arr[i])
               rmax=arr[i];
            rm[i]=rmax;      
