@@ -12,38 +12,51 @@ class Solution{
     long long trappingWater(int arr[], int n){
         // code here
         
-        int lm[n];//stores the left max element
-        int rm[n];//stores the right mnost element
-        int lmax=0;
-        for(int i=0;i<n;i++)
+        int lmax=arr[0];
+        int rmax=arr[n-1];
+        if(n<=2) return 0;
+        
+        int left=1;
+        int right=n-2;
+        long long res=0;
+        
+        while(left<=right)
         {
-           
-          if(lmax<arr[i])
-             lmax=arr[i];
-        lm[i]=lmax;     
-          
-        }
-       // cout<<endl;
-       int rmax=0;
-          for(int i=n-1;i>=0;i--)
-        {
+            if(lmax<=rmax)
+            {
+                if(lmax>=arr[left])
+                {
+                    res+=lmax-arr[left];
+                    left++;
+                    
+                }
+                else if(lmax<arr[left])
+                {
+                    lmax=arr[left];
+                    left++;
+                }
+            }
+            else if(lmax>rmax)
+            {
+                if(rmax>=arr[right])
+                {
+                    res+=rmax-arr[right];
+                    right--;
+                }
+                else if(rmax<arr[right])
+                {
+                    rmax=arr[right];
+                    right--;
+                    
+                }
+                
+            }
             
-           if(rmax<arr[i])
-              rmax=arr[i];
-           rm[i]=rmax;      
+            
         }
-        long long sum=0;
-        for(int i=0;i<n;i++)
-        {
-            int x=min(lm[i],rm[i]);
-            int d=x-arr[i];
-            //cout<<d<<" ";
-            if(d>0)
-            sum+=d;
-        }
+        return res;
         
         
-        return sum;
     }
 };
 
