@@ -51,7 +51,26 @@ public:
             }
         }
     }
+        
+        
+     /*   for(int i=0;i<n;i++)
+        {
+            for(int j=i+2;j<n;j++)
+            {
+                   // palindrome
+                   cout<<i<<j<<table[i + 1][j - 1]<<" ";
+            
+            if (table[i + 1][j - 1] && str[i] == str[j]) {
+                table[i][j] = true;
+                 
+                if (j-i+1 > maxLength) {
+                    start = i;
+                    maxLength = j-i+1;
+                }
+            }
+        }
 
+    }*/
  
     // return length of LPS
     return str.substr(start,maxLength);
