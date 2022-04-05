@@ -16,13 +16,12 @@ public:
         int count=1;
          char temp=s[0];
         
-        if(s.length()==1)
+        if(s.length()==1) //this loop for only one char in s
         {
           res=to_string(1)+s[0];
             return res;
         }
         
-        int flag=0;
         for(int i=1;i<s.length();i++)
         {
            if(s[i-1]==s[i])
@@ -45,7 +44,7 @@ public:
                          
           
         }
-            res+=to_string(count)+temp;
+            res+=to_string(count)+temp;// as the last character isnot included in the result;
           return res;
         
         
