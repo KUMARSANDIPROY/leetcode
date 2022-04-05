@@ -13,14 +13,14 @@ class Solution
     // prefix in another string, then
     // compare the size of the string
     // and return the larger size
-    if (a.compare(0, b.size(), b) == 0
+   /* if (a.compare(0, b.size(), b) == 0
         || b.compare(0, a.size(), a) == 0)
  
         return a.size() > b.size();
  
     // Else return lexicographically
     // smallest string
-    else
+    else*/
         return a < b;
 }
 	
