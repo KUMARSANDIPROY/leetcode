@@ -18,20 +18,20 @@ class Solution
     
         for(int i=0;i<s.length();i++)
         {
-          // cout<<"jsddc ";
+         
             if(st.empty() && (s[i]==')' || s[i]=='}' || s[i]==']')) return false;
             if(s[i]=='(' || s[i]=='{' || s[i]=='[')
              {
-               //  cout<<"jjgvhkjb,jddc ";
+               
                  st.push(s[i]);
-                  //cout<<st.top()<<" ";
+                 
                  continue;
              }
-               //  cout<<st.top()<<" ";
+              
              
              if(s[i]==')')
              {
-                 // cout<<"jsddc ";
+                 
                  if(st.top()!='(')
                     return false;
                     
