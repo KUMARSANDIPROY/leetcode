@@ -1,4 +1,4 @@
-class Solution {
+ class Solution {
 public:
     int solve(int m,int n, vector<vector<int>> &dp)
     {
@@ -6,10 +6,10 @@ public:
         if(m==0 && n==0) return 1;
         if(m<0 || n<0)  return 0;
         int up=0,left=0;
-        if(m>0) up=solve(m-1,n,dp);
+        if(m>0)  up=solve(m-1,n,dp);
         if(n>0)  left=solve(m,n-1,dp);
         
-        return dp[m][n]= up +left;
+        return dp[m][n]=up+left;
     }
     
     int uniquePaths(int m, int n) {
