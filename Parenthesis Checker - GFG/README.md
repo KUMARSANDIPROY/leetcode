@@ -11,7 +11,7 @@ For example, the function should return 'true' for exp = “[()]{}{[()()]()}” 
 <strong>Output</strong>: 
 true
 <strong>Explanation</strong>: 
-<span style="color: rgb(255, 0, 0); --darkreader-inline-color:#ff1a1a;" data-darkreader-inline-color="">{</span> <span style="color: rgb(0, 255, 0); --darkreader-inline-color:#1aff1a;" data-darkreader-inline-color="">(</span> <span style="color: rgb(0, 0, 205); --darkreader-inline-color:#5190ff;" data-darkreader-inline-color="">[</span> <span style="color: rgb(0, 0, 205); --darkreader-inline-color:#5190ff;" data-darkreader-inline-color="">]</span> <span style="color: rgb(0, 255, 0); --darkreader-inline-color:#1aff1a;" data-darkreader-inline-color="">)</span> <span style="color: rgb(255, 0, 0); --darkreader-inline-color:#ff1a1a;" data-darkreader-inline-color="">}.&nbsp;</span><span style="color: rgb(0, 0, 0); --darkreader-inline-color:#e8e6e3;" data-darkreader-inline-color="">Same colored brackets can form 
+<span style="color:#FF0000">{</span> <span style="color:#00FF00">(</span> <span style="color:#0000CD">[</span> <span style="color:#0000CD">]</span> <span style="color:#00FF00">)</span> <span style="color:#FF0000">}.&nbsp;</span><span style="color:#000000">Same colored brackets can form 
 balaced pairs, with 0 number of 
 unbalanced bracket.</span>
 </span></pre>
@@ -23,7 +23,7 @@ unbalanced bracket.</span>
 <strong>Output</strong>: 
 true
 <strong>Explanation</strong>: 
-<span style="color: rgb(0, 255, 0); --darkreader-inline-color:#1aff1a;" data-darkreader-inline-color="">()</span><span style="color: rgb(0, 0, 0); --darkreader-inline-color:#e8e6e3;" data-darkreader-inline-color="">. Same bracket can form balanced pairs, 
+<span style="color:#00FF00">()</span><span style="color:#000000">. Same bracket can form balanced pairs, 
 and here only 1 type of bracket is 
 present and in balanced way.</span></span>
 </pre>
@@ -35,7 +35,7 @@ present and in balanced way.</span></span>
 <strong>Output</strong>: 
 false
 <strong>Explanation</strong>: 
-<span style="color: rgb(0, 255, 0); --darkreader-inline-color:#1aff1a;" data-darkreader-inline-color="">(</span><span style="color: rgb(0, 0, 205); --darkreader-inline-color:#5190ff;" data-darkreader-inline-color="">[]</span>.<span style="color: rgb(0, 0, 0); --darkreader-inline-color:#e8e6e3;" data-darkreader-inline-color=""> Here square bracket is balanced but 
+<span style="color:#00FF00">(</span><span style="color:#0000CD">[]</span>.<span style="color:#000000"> Here square bracket is balanced but 
 the small bracket is not balanced and 
 Hence , the output will be unbalanced.</span></span></pre>
 
