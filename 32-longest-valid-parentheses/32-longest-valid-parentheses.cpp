@@ -17,7 +17,7 @@ public:
             }
             else if(s[i]==')')
             {
-                if(!charst.empty())// && charst.top()=='(')
+                if(!charst.empty() && charst.top()=='(')
                 {
                     charst.pop();
                     indexst.pop();
