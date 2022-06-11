@@ -13,9 +13,10 @@ class Solution{
 	public:
 	int solve(int cost[],int N,int W,vector<vector<int>> &dp)
 	{
-	    if(N==0 && W==0) return 0;
+	 //   if(N==0 && W==0) return 0;
+	   if(W==0) return 0;
 	    if(N==0) return 1e9;
-	    if(W==0) return 0;
+	  
 	    
 	    if(dp[N][W]!=-1) return dp[N][W];
 	    int take,nontake;
@@ -36,7 +37,7 @@ class Solution{
         // Your code goes here
         vector<vector<int>> dp(1001,vector<int>(1001,-1));
         
-        return solve(cost,N,W,dp);//==0?32767:solve(cost,N,W,dp);
+        return solve(cost,N,W,dp)>=1e9?-1:solve(cost,N,W,dp);
 	} 
 };
 
