@@ -12,37 +12,21 @@ class Solution{
 public:
     int isStackPermutation(int N,vector<int> &A,vector<int> &B){
         
-        stack<int> st;
-        int k=0;
-        //cout<<"hvj,h";
-        for(int i=0;i<A.size();i++)
-        {
-            if(B[k]!=A[i])
-               st.push(A[i]);
-               
-            else if(B[k]==A[i]) 
-            {
-                k++;
-            }
-            if(!st.empty() && B[k]==st.top())
-            {
-                while(!st.empty() && B[k]==st.top())
-              {
-                  k++;
-                st.pop();
-              }
-            }
-        }
-        while(st.empty()==false)
-        {
-            if(B[k]!=st.top()) return 0;
-            else if(B[k]==st.top())
-            {
-                k++;
-                st.pop();
-            }
-        }
-        return 1;
+      stack<int> st;
+       int j = 0;
+       for(int i = 0; i < N; i++){
+           st.push(A[i]);
+           
+           while(!st.empty() && st.top() == B[j]){
+               st.pop();
+               j++;
+           }
+       }
+       
+       if(st.empty()){
+           return 1;
+       }
+       return 0;
     }
 };
 
