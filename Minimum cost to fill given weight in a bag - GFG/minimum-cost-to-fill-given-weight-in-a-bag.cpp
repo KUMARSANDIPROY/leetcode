@@ -36,7 +36,7 @@ class Solution{
         // Your code goes here
         vector<vector<int>> dp(1001,vector<int>(1001,-1));
         
-        return solve(cost,N,W,dp);
+        return solve(cost,N,W,dp)==0?32767:solve(cost,N,W,dp);
 	} 
 };
 
