@@ -10,10 +10,10 @@ class Solution {
 		    string res;
 		    queue<char> q;
 		    map<char,int> mp;
-		    res.push_back(A[0]);
-		    q.push(A[0]);
-		    mp[A[0]]++;
-		    for(int i=1;i<A.size();i++)
+		  //  res.push_back(A[0]);
+		  //  q.push(A[0]);
+		  //  mp[A[0]]++;
+		    for(int i=0;i<A.size();i++)
 		    {
 		        mp[A[i]]++;
 		        q.push(A[i]);
