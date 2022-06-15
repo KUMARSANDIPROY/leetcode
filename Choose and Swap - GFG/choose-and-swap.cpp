@@ -20,7 +20,7 @@ public:
             if(ch1<a[i])
             {
                 char ch2=a[i];
-                for(int j=0;j<a.length();j++)
+                for(int j=i;j<a.length();j++)
                 {
                     if(a[j]==ch1) a[j]=ch2;
                     else if(a[j]==ch2) a[j]=ch1;
