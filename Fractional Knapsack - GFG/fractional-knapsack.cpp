@@ -21,48 +21,41 @@ struct Item{
 class Solution
 {
     public:
-    bool static comp(pair<double,int> a,pair<double,int> b)
+    bool static cmp(Item a,Item b)
     {
-        return a.first>b.first;
+        double x=(double)a.value/(double)a.weight;
+        double y=(double)b.value/(double)b.weight;
+        
+        return x>y;
     }
     
     //Function to get the maximum total value in the knapsack.
     double fractionalKnapsack(int W, Item arr[], int n)
     {
         // Your code here
-        vector<pair<double,int>> temp;
-        
-        for(int i=0;i<n;i++)
-        {
-            float x=(double)arr[i].value/(double)arr[i].weight;
-            temp.push_back({x,i});
-        }
-        
-        sort(temp.begin(),temp.end(),comp);
+        sort(arr,arr+n,cmp);
+        double ans=0;
         
         int i=0;
-        double ans=0;
         while(W>0 && i<n)
         {
-            int index=temp[i++].second;
-            if(W>=arr[index].weight)
+            if(W>=arr[i].weight)
             {
-                ans+=arr[index].value;
-                W-=arr[index].weight;
-               // cout<<W<<"W  ";
+                ans+=arr[i].value;
+                W-=arr[i].weight;
+                i++;
+                
             }
-            
-            else
+            else if(W<arr[i].weight)
             {
-              //  cout<<ans;
-              //  cout<<W<<"u   ";
-                double fraction=(double)W/(double)arr[index].weight;
-                //cout<<fraction<<"frac  ";
-                ans=ans+(arr[index].value * fraction);
+                double fraction=(double)W/(double)arr[i].weight;
+                ans+=(double)arr[i].value*(double)fraction;
                 break;
             }
+            
         }
         return ans;
+        
     }
         
 };
