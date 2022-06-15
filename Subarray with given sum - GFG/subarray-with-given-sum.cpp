@@ -24,10 +24,11 @@ class Solution
            }
            
            if(currSum<s){
+              // cout<<j<<" ";
                currSum+=arr[j];
                j++;
            }
-           else{
+           while(currSum>s){
                currSum-=arr[i];
                i++;
            }
