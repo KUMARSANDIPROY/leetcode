@@ -14,15 +14,18 @@ public:
             
             if(nums[prev]>=nums[mid] && nums[mid]<=nums[next])
                 break;
-            else if(nums[0]<=nums[mid] && nums[mid]<=nums[l-1])
-                j=mid-1;
+//             else if(nums[0]<=nums[mid] && nums[mid]<=nums[l-1])
+//                 j=mid-1;
             
-            else if(nums[0]>nums[mid])
-                   j=mid-1;
-            else if(nums[l-1]<nums[mid])
-                i=mid+1;
-          
+//             else if(nums[0]>nums[mid])
+//                    j=mid-1;
+//             else if(nums[l-1]<nums[mid])
+//                 i=mid+1;
+              if(nums[mid]<=nums[j])
+                  j=mid-1;
             
+              else if(nums[mid]>=nums[i])
+                  i=mid+1;
             
         }
        return nums[mid];
