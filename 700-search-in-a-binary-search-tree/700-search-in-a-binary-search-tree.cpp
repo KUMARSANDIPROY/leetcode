@@ -11,24 +11,12 @@
  */
 class Solution {
 public:
-    TreeNode* solve(TreeNode* root,int val)
-    {
-        if(root==NULL) return NULL;
-        if(root->val== val) return root;
-        
-        TreeNode *l=NULL,*r=NULL;
-        if(root->val>=val)   l=solve(root->left,val);
-        else r=solve(root->right,val);
-        
-        if(l!=NULL) return l;
-        else if(r!=NULL) return r;
-        else return NULL;
-        
-    }
-    
     TreeNode* searchBST(TreeNode* root, int val) {
         
-        return solve(root,val);
-        
+        while(root!=nullptr && root->val != val)
+        {
+            root=root->val>val?root->left:root->right;
+        }
+        return root;
     }
 };
