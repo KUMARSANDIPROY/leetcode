@@ -6,7 +6,7 @@ public:
         
         for(int i=0;i<arr.size();i++)
         {
-            q.push({abs(arr[i]-x),i});
+            q.push({abs(arr[i]-x),arr[i]});
             
             if(q.size()>k)
                 q.pop();
@@ -16,7 +16,7 @@ public:
         
         while(q.empty()==false)
         {
-            res.push_back(arr[q.top().second]);
+            res.push_back(q.top().second);
             q.pop();
         }
         
