@@ -14,19 +14,18 @@ class Solution{
     // r : ending index of the array i.e size-1
     // k : find kth smallest element and return using this function
     int kthSmallest(int arr[], int l, int r, int k) {
+        //code here
+        priority_queue<int> hp;
         
-       priority_queue<int,vector<int>,greater<int> > p;
-       for(int i=0;i<=r;i++)
-       {
-           p.push(arr[i]);
-       }
-       for(int i=1;i<k;i++)
-       {
-           p.pop();
-       }
-       int a=p.top();
-       return a;
-    } 
+        for(int i=l;i<=r;i++)
+        {
+            hp.push(arr[i]);
+            
+            if(hp.size()>k)
+               hp.pop();
+        }
+        return hp.top();
+    }
 };
 
 // { Driver Code Starts.
