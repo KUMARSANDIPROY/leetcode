@@ -19,14 +19,14 @@ public:
         
         for(int i=1;i<=n;i++)
         {
-            vector<int> temp=dp;
+            vector<int> prev=dp;
             for(int j=1;j<=min(r,i);j++)
             {
                 
-                temp[j]=(dp[j-1]+dp[j])%mod;
+                dp[j]=(prev[j-1]+prev[j])%mod;
               //  cout<<j<<dp[j]<<" ";
             }
-            dp=temp;
+           
            // cout<<endl;
         }
         return dp[r];
