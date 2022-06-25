@@ -31,7 +31,7 @@ class Solution
             q.push({arr[i][0],i});
         }
         
-        while(res.size()<K*K)
+        while(q.empty()==false) //res.size()<K*K)
         {
             int val=q.top().first;
             int arr_no=q.top().second;
