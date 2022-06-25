@@ -31,7 +31,7 @@ class Solution
             q.push({arr[i][0],i});
         }
         
-        while(res.size()<K*K)
+        while(!q.empty())//res.size()<K*K)
         {
             int val=q.top().first;
             int arr_no=q.top().second;
@@ -42,10 +42,10 @@ class Solution
               q.push({arr[arr_no][idx[arr_no]],arr_no});
         }
         
-        while(!q.empty()){
-            res.push_back(q.top().first);
-            q.pop();
-        }
+        // while(!q.empty()){
+        //     res.push_back(q.top().first);
+        //     q.pop();
+        // }
         
         return res;
     }
