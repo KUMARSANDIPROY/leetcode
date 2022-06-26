@@ -101,32 +101,22 @@ Node * right, * left;
 };*/
 
 /*You are required to complete below method */
-bool solve(Node *root,int low ,int high,int &flag)
+bool find_ans(Node * curr, int start, int end)
 {
-    // if(root) cout<<root->data<<low<<"l  ";
-    if(root==NULL&& (high==low || high-1==low)) 
-    {
-     
-    // cout<<"bh";
+    if(curr==NULL)
+        return false;
+    if(start==end)
         return true;
-    }
-    if(root==NULL) return false;
     
-    //  cout<<root->data<<"  ";
-    bool l=solve(root->left,low,root->data,flag);
-    bool r=solve(root->right,root->data,high,flag);
-    if(flag==0 && l==true && r==true)
-    {
-        flag=1;
-        return true;
-    }
-    if(flag==1) return l || r;
+    //cout<<curr->data<<" "<<start<<" "<<end<<endl;
+    bool l = find_ans(curr->left, start, curr->data-1);
+    bool r = find_ans(curr->right, curr->data+1, end);
     
-    
+    return (l||r);
 }
+
 bool isDeadEnd(Node *root)
 {
-    //Your code here
-    int flag=0;
-    return solve(root,1,INT_MAX,flag);
+    int start=1, end=INT_MAX;
+    return find_ans(root, start, end);
 }
