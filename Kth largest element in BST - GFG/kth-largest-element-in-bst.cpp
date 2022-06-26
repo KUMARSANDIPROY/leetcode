@@ -98,16 +98,20 @@ class Solution
 {
     public:
     
-    void solve(Node *root,vector<int> &res)
+    void solve(Node *root,int &res,int &K)
     {
         if(root==NULL) return;
        
-        if(root->left) solve(root->left,res);
+        if(root->right) solve(root->right,res,K);
+    
+        K--;
+        if(K==0) 
+        {
+            res=root->data;
+            return;
+        }
         
-        
-        res.push_back(root->data);
-        
-        if(root->right) solve(root->right,res);
+        if(root->left) solve(root->left,res,K);
             
     
         
@@ -116,9 +120,10 @@ class Solution
     int kthLargest(Node *root, int K)
     {
         //Your code here
-        vector<int> res;
-        solve(root,res);
-        return res[res.size()-K];
+        int res;
+        
+        solve(root,res,K);
+        return res;
     }
 };
 
