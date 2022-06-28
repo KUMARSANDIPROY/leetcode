@@ -110,7 +110,7 @@ class Solution {
                 if(seen==true || temp->data<temp->left->data)
                    return false;
                 
-                q.push(temp->left);   
+               else q.push(temp->left);   
             }
             else
                seen=true;
