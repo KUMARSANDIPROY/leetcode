@@ -98,31 +98,26 @@ struct Node
         
 };
 */
-Node* solve(Node *head)
-{
-    if(head==NULL)
-    {
-        return head;
-    }
-    if(head->next==NULL)
-    {
-        head->next=head->prev;
-        head->prev=NULL;
-        return head;
-    }
-    
-    Node *temp=solve(head->next);
-    Node *x=head->next;
-    head->next=head->prev;
-    head->prev=x;
-    return temp;
-    
-}
-
 Node* reverseDLL(Node * head)
 {
     //Your code here
-    return solve(head);    
+    Node *ptr1=head;
+    Node *ptr2=head->next;
+        
+    ptr1->next=NULL;
+    ptr1->prev=ptr2;
+    
+    while(ptr2!=NULL)
+    {
+        ptr2->prev=ptr2->next;
+        ptr2->next=ptr1;
+        ptr1=ptr2;
+        ptr2=ptr2->prev;
+    }
+    head=ptr1;
+    //cout<<ptr1->next->data<<endl;
+    return head;
+        
 }
 
 
