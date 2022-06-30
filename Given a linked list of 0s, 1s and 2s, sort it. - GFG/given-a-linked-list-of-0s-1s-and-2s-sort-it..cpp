@@ -93,10 +93,9 @@ class Solution
             temp=temp->next;
             
         }
-       // zerotail->next=onetail->next=twotail->next=NULL;
-       // cout<<onetail->data<<"kg  ";
-       if(zerotail)
-          zerotail->next=NULL;
+       
+    //   if(zerotail)
+    //       zerotail->next=NULL;
         if(onetail)
           onetail->next=NULL;
        
@@ -104,17 +103,7 @@ class Solution
           twotail->next=NULL;
           
         
-    //     cout<<endl;
-    //   int c=0;
-    //   Node *t=twohead;
-    //   while(t)
-    //   {
-    //       c++;
-    //       cout<<t->data;
-    //       t=t->next;
-          
-    //   }
-    //   cout<<"gb"<<c<<endl;
+  
        
         if(zerohead)
         {
