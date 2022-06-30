@@ -76,12 +76,7 @@ struct Node
 class Solution
 {
     public:
-    //Function to remove a loop in the linked list.
-    // void solve(Node* &node)
-    // {
-       
-    // }
-    
+   
     void removeLoop(Node* node)
     {
         
@@ -104,7 +99,7 @@ class Solution
                 prev=slow;
                 slow=slow->next;
                 fast=fast->next->next;
-              //  cout<<slow->data<<" bkb  ";
+             
             }
             if(slow==fast)
                break;
@@ -112,7 +107,7 @@ class Solution
      
         
         
-        if(fast==slow)
+        if(fast==slow)// if no loop is there then fast is NULL,then this underline code will not be implemented
         {
              Node* temp=node;
              if(slow==temp)
@@ -123,7 +118,7 @@ class Solution
                 prev=slow;
                 slow=slow->next;
                 temp=temp->next;
-                //cout<<temp->data<<" ";
+              
             }
             prev->next=NULL;
         }
