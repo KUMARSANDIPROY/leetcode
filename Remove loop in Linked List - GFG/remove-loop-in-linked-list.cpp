@@ -84,10 +84,8 @@ class Solution
     
     void removeLoop(Node* node)
     {
-        // code here
-        // just remove the loop without losing any nodes
-        // solve(head);
-        Node *tt=node,*prev=NULL;
+        
+        Node *prev=NULL;
         if(node==NULL || node->next==NULL) return;
         
         Node *slow=node,*fast=node;
@@ -111,12 +109,12 @@ class Solution
             if(slow==fast)
                break;
         }
-        //cout<<slow->data<<fast->data<<" bkb  ";
+     
         
         
         if(fast==slow)
         {
-             Node* temp=tt;
+             Node* temp=node;
              if(slow==temp)
                prev->next=NULL;
             
