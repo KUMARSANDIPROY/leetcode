@@ -46,8 +46,9 @@ class Solution{
       while(fast && fast->next )
       {
           slow=slow->next;
-          if(fast->next==NULL) fast=fast->next;
-           else fast=fast->next->next;
+        //   if(fast->next==NULL) fast=fast->next;
+        //   else 
+           fast=fast->next->next;
       }
       return slow->data;
     }
