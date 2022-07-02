@@ -66,9 +66,9 @@ class Solution
     {
         // your code goes here
         Node *head1=reverse(head);
-         int mx=head1->data;
-        Node* temp=head1->next,*prev=head1;
          
+        Node* temp=head1->next,*prev=head1;
+         int mx=head1->data;
         while(temp)
         {
             if(temp->data >= mx)
