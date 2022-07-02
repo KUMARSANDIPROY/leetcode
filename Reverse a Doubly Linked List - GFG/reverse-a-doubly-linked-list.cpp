@@ -115,7 +115,7 @@ Node* reverseDLL(Node * head)
         cur->next=cur->prev;
         cur->prev=post;
         prev=cur;
-        cur=cur->prev;
+        cur=post;
         
     }
     return prev;
