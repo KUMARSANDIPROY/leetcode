@@ -112,7 +112,7 @@ Node* reverseDLL(Node * head)
     while(cur)
     {
         post=cur->next;
-        cur->next=cur->prev;
+        cur->next=prev;
         cur->prev=post;
         prev=cur;
         cur=post;
