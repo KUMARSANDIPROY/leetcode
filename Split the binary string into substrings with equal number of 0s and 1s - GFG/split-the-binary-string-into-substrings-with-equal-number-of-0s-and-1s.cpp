@@ -10,55 +10,48 @@ public:
     int maxSubStr(string str){
         //Write your code here
         int count=0;
-        int zero=0;
-        int one=0;
+        // int zero=0;
+        // int one=0;
+        // char prev=str[0];
+        // if(prev=='0')
+        //   zero=1;
+        // else
+        //   one=1;
+        map<char,int> mp;
+        mp['0']=0;
+        mp['1']=0;
         char prev=str[0];
-        if(prev=='0')
-          zero=1;
-        else
-          one=1;
+        mp[prev]=1;
         
         for(int i=1;i<str.length();i++)
         {
            
             if(prev==str[i])
             {
-                if(prev=='0')
-                   zero++;
-                else 
-                   one++;
+                mp[prev]++;
             }
             else if(prev!=str[i])
             {
                 if(prev=='0')
-                   one++;
+                   mp['1']++;
                 else
-                  zero++;
+                   mp['0']++;
                    
             }
          //   cout<<i<<" "<<zero<<one<<endl;
-            if(zero==one)
+            if(mp['0']==mp['1'])
             {
                 count++;
                 
-               // cout<<i<<" "<<zero<<one<<endl;
+                mp['0']=0;
+                mp['1']=0;
                if(i==str.length()-1) break;
                 prev=str[i+1];
-              //  cout<<prev<<"prev   "<<endl;
-                if(prev=='0')
-                {
-                    zero=1;
-                    one=0;
-                }
-                else
-                {
-                    zero=0;
-                    one=1;
-                }
+                mp[prev]++;
                 i++;
             }
         }
-        if(zero!=one) return -1;
+        if(mp['1']!=mp['0']) return -1;
         return count;
     }
 };
