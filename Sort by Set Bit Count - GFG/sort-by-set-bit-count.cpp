@@ -6,7 +6,7 @@ using namespace std;
  // } Driver Code Ends
 class Solution{
     public:
-    int count_set_bits(int x)
+     int count_set_bits(int x)
     {
         int count=0;
         while(x>0)
