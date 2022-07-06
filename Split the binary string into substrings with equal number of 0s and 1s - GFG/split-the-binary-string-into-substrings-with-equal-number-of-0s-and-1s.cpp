@@ -10,13 +10,7 @@ public:
     int maxSubStr(string str){
         //Write your code here
         int count=0;
-        // int zero=0;
-        // int one=0;
-        // char prev=str[0];
-        // if(prev=='0')
-        //   zero=1;
-        // else
-        //   one=1;
+       
         map<char,int> mp;
         mp['0']=0;
         mp['1']=0;
