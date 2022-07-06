@@ -11,30 +11,27 @@ class Solution{
 public:
    void solve(string A, vector<string> &B,int idx,string str,vector<string> &res)// same as pallindrome partitioning
     {
-        if(idx==A.length())
-           return ;
+        // if(idx==A.length())
+        //   return ;
          
         for(int i=idx;i<A.length();i++)
         {
-            //cout<<i;
             string temp=str;
             string sub=A.substr(idx,i-idx+1);
             if(find(B.begin(),B.end(),sub)!=B.end())
             {
-                
                 if(i==A.length()-1)
                 {
-                   
                     str+=sub;
                     res.push_back(str);
-                   // cout<<str<<endl;
                     return ;
                 }
                 else
+                {
                    str+=sub +" ";
-               // cout<<str<<i+1<<"  ";
-                solve(A,B,i+1,str,res);
-               // cout<<idx<<" ";
+                }
+             
+               solve(A,B,i+1,str,res);
                str=temp;
                 
             }
