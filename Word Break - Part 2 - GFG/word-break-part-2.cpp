@@ -11,9 +11,7 @@ class Solution{
 public:
    void solve(string A, vector<string> &B,int idx,string str,vector<string> &res)// same as pallindrome partitioning
     {
-        // if(idx==A.length())
-        //   return ;
-         
+    
         for(int i=idx;i<A.length();i++)
         {
             string temp=str;
@@ -32,9 +30,9 @@ public:
                 }
              
                solve(A,B,i+1,str,res);
-               str=temp;
                 
             }
+            str=temp;
         }
          
     
