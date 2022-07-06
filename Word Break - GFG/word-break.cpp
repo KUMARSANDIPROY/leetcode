@@ -14,21 +14,21 @@ using namespace std;
 class Solution
 {
 public:
-    bool solve(string A, vector<string> &B,int idx)
+    bool solve(string A, vector<string> &B,int idx)// same as pallindrome partitioning
     {
-        if(idx==A.length())
-           return false;
+        // if(idx==A.length())
+        //   return false;
          
         for(int i=idx;i<A.length();i++)
         {
             string sub=A.substr(idx,i-idx+1);
             if(find(B.begin(),B.end(),sub)!=B.end())
             {
-               // cout<<idx<<"d"<<i<<endl;  
+               
                 if(i==A.length()-1) return true;
                 if(solve(A,B,i+1))
                 {
-                  //
+                  
                    return true;
                 }
             }
