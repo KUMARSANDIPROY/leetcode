@@ -16,8 +16,8 @@ class Solution
 public:
     bool solve(string A, vector<string> &B,int idx)// same as pallindrome partitioning
     {
-        // if(idx==A.length())
-        //   return false;
+        if(idx==A.length())
+           return true;
          
         for(int i=idx;i<A.length();i++)
         {
@@ -25,7 +25,7 @@ public:
             if(find(B.begin(),B.end(),sub)!=B.end())
             {
                
-                if(i==A.length()-1) return true;
+               // if(i==A.length()-1) return true;
                 if(solve(A,B,i+1))
                 {
                   
