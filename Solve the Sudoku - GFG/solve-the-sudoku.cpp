@@ -21,12 +21,14 @@ class Solution
         {
             if(grid[row][i]==key)
                return false;
-        }
-        for(int i=0;i<N;i++)
-        {
             if(grid[i][col]==key)
-               return false;
+              return false;
         }
+        // for(int i=0;i<N;i++)
+        // {
+        //     if(grid[i][col]==key)
+        //       return false;
+        // }
          
         int sr=(row/3)*3;
         int sc=(col/3)*3;
