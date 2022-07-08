@@ -112,15 +112,9 @@ public:
                 head=delete_present_node(head,key);
                 head=add_node(head,key);
                 auto it=s.find(key);
-               // s.erase(it);
-            }
-           // cout<<i<<" "<<key<<" "<<res<<endl;
-        //   if(i==3)
-        //   {
-        //       for(int p:s)
-        //          cout<<p<<" ";
-        //   }cout<<endl;
                
+            }
+          
         }
         
         
