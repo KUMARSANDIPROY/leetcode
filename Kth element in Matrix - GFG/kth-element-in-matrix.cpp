@@ -29,26 +29,28 @@ int main()
 
 
 
-int kthSmallest(int matrix[MAX][MAX], int n, int k)
+int kthSmallest(int mat[MAX][MAX], int n, int k)
 {
   //Your code here
-  int low=matrix[0][0];
-    int high=matrix[n-1][n-1];
-    while(low<high)
-    {
-        int mid=low+(high-low)/2;
-        int cnt=0;
-        for(int i=0;i<n;i++)
-        {
-            cnt+=upper_bound(matrix[i],matrix[i]+n,mid)-matrix[i];
-        }
-        if(cnt>=k)
-            high=mid;
-        else
-            low=mid+1;
-    }
-        return high;
-
-
+  int low=mat[0][0];
+  int high=mat[n-1][n-1];
+  int mid;
+  
+  while(low<high)
+  {
+      int mid=low+(high-low)/2;
+      
+      int count=0;
+      
+      for(int i=0;i<n;i++)
+      {
+          count+=upper_bound(mat[i],mat[i]+n,mid)-mat[i];
+      }
+      if(count<k)
+         low=mid+1;
+      else if(count>=k)
+         high=mid;
+  }
+  return high;
   
 }
