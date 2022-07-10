@@ -23,6 +23,7 @@ bool solve(bool graph[101][101],int node ,int m, int n,vector<int> &color)
     for(int col=1;col<=m;col++)
     {
         if(is_safe(graph,node,col,color,n))
+        
         {
              color[node]=col;
             if(solve(graph,node+1,m,n,color))
