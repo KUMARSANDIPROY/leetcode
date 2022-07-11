@@ -7,28 +7,24 @@ class Solution{
 		
 
 	public:
-	
-	int dp[1005][1005];
-	int solve(int arr[],int n,int prev,int limit)
-	{
-	    if(n==0)  return 0;
-	    if(dp[n][prev]!=-1) return dp[n][prev];
-	    
-	    int take=0;
-	    if(prev==limit+1 || (prev<limit+1 && arr[prev]>arr[n-1]))
-	         take=arr[n-1]+solve(arr,n-1,n-1,limit);
-	    int not_take= solve(arr,n-1,prev,limit);
-	    
-	    return dp[n][prev]=max(take,not_take);
-	}
-	
 	int maxSumIS(int arr[], int n)  
 	{  
 	    // Your code goes here
-	    memset(dp,-1,sizeof(dp));
-	    int prev=n+1;
-	    return solve(arr,n,prev,n);
+	    int ms[n];
 	    
+	    for(int i=0;i<n;i++)
+	       ms[i]=arr[i];
+	       
+	   for(int i=1;i<n;i++)
+	   {
+	       for(int j=0;j<i;j++)
+	       {
+	           if(arr[i]>arr[j] && ms[i]<ms[j]+arr[i])
+	              ms[i]=ms[j]+arr[i];
+	       }
+	   }
+	   
+	   return *max_element(ms,ms+n);
 	}  
 };
 
