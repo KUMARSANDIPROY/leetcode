@@ -22,7 +22,7 @@ public:
                 flag=1;
                 if(i-1>=0 && j-1>=0)
                 {
-                    if (mat[i-1][j]!=0 && mat[i-1][j-1]!=0 && mat[i][j-1]!=0)
+                    //if (mat[i-1][j]!=0 && mat[i-1][j-1]!=0 && mat[i][j-1]!=0)
                    {
                        mat[i][j]=1+min(mat[i-1][j-1],min(mat[i-1][j], mat[i][j-1]));
                        res=max(res,mat[i][j]);
@@ -31,7 +31,7 @@ public:
             }
         }
      }
-   //  cout<<mat[2][3]<<"   ";
+   
      if(res==0)
        return flag;
      
