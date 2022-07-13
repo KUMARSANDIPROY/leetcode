@@ -12,14 +12,11 @@ using namespace std;
 class Solution{
   public:		
 	int lps(string s) {
-	    // Your code goes here
-	  //  int mx=INT_MIN;
+	 
 	    int n=s.size();
 	    vector<int> LPS(n);
 	    
 	    LPS[0]=0;
-	    
-	   
 	    int len=0,i=1;
 	    
 	    while(i<n)
@@ -27,7 +24,6 @@ class Solution{
 	         if(s[len]==s[i])
 	        {
 	            LPS[i]=len+1;
-	            //mx=max(LPS[j],mx);
 	            len++;
 	            i++;
 	           
@@ -35,7 +31,7 @@ class Solution{
 	        
 	        else if(s[i]!=s[len])
 	        {
-	            if(len==0)
+	           if(len==0)
 	           {
 	               LPS[i]=0;
 	               i++;
@@ -43,13 +39,11 @@ class Solution{
 	           else
 	           {
 	               len=LPS[len-1];
-	               
 	           }
 	        }
-	        
-	       // cout<<LPS[j]<<"  ";
-	 
 	    }
+	   
+	    
 	    return LPS[n-1];
 	   
 	    
