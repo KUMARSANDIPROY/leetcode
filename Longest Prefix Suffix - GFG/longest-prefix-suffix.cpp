@@ -42,7 +42,10 @@ class Solution{
 	           }
 	        }
 	    }
-	   
+	   //for(int i:LPS)
+	   //  cout<<i<<" ";
+	    
+	   //cout<<endl;  
 	    
 	    return LPS[n-1];
 	   
