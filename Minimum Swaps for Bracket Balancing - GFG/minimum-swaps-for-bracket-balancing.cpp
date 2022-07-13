@@ -15,11 +15,10 @@ public:
         for(int i=0;i<s.length();i++)
         {
             if(s[i]=='[')
-            {   if(ub==0)
-                    open++;
-                else
+            {   
+                open++;
+                if(ub>0)
                 {
-                    open++;
                     ans+=ub;
                     ub--;
                 }
@@ -27,8 +26,7 @@ public:
             else if(s[i]==']')
             {
                 close++;
-                if(close>open)
-                   ub=close-open;
+                ub=close-open;
             }
             
                
