@@ -1,5 +1,5 @@
 # Wildcard string matching
-## Hard 
+##  Hard 
 <div class="problem-statement">
                 <p></p><p><span style="font-size:18px">Given two strings <strong>wild</strong> and <strong>pattern</strong> where wild string may contain wild card characters and pattern string is a normal string. Determine if the two strings match.&nbsp;The following are the allowed wild card characters in first string :-</span></p>
 
