@@ -6,7 +6,7 @@ using namespace std;
 // User function template for C++
 class Solution{
     public:
-    bool solve(int i,int j,string wild,string pattern)
+    bool solve(int i,int j,string wild,string pattern,vector<vector<int>> &dp)
     {
         if(i<0 && j<0) return true;
         if(i<0 && j>=0) return false;
@@ -19,13 +19,14 @@ class Solution{
             }
             return true;
         }
+        if(dp[i][j]!=-1) return dp[i][j];
         
         if(wild[i]==pattern[j] || wild[i]=='?')
-           return solve(i-1,j-1,wild,pattern);
+           return dp[i][j]=solve(i-1,j-1,wild,pattern,dp);
            
         if(wild[i]=='*')
         {
-            return solve(i,j-1,wild,pattern)  || solve(i-1,j,wild,pattern);
+            return dp[i][j]=solve(i,j-1,wild,pattern,dp)  || solve(i-1,j,wild,pattern,dp);
         }
         
     }
@@ -37,7 +38,7 @@ class Solution{
         int n=pattern.size();
         vector<vector<int>> dp(m,vector<int>(n,-1));
         
-        return solve(m-1,n-1,wild,pattern);
+        return solve(m-1,n-1,wild,pattern,dp);
     }
 };
 
