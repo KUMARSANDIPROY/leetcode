@@ -12,8 +12,7 @@ class Solution
     //Function to find the length of longest common subsequence in two strings.
     int lcs(int x, int y, string s1, string s2)
     {
-        // your code here
-        int t[x+1][y+1];
+           int t[x+1][y+1];
         
         for(int i=0;i<=x;i++)
         {
@@ -41,7 +40,6 @@ class Solution
             }
         }
         return t[x][y];
-        
     }
 };
 
