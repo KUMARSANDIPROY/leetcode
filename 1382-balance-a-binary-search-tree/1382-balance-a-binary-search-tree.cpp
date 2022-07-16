@@ -22,11 +22,11 @@ public:
     TreeNode* solve(vector<int> res,int i,int j)
     {
         if(i>j) return NULL;
-        if(i==j)
-        {
-            TreeNode *temp=new TreeNode(res[i]);
-            return temp;
-        }
+        // if(i==j)
+        // {
+        //     TreeNode *temp=new TreeNode(res[i]);
+        //     return temp;
+        // }
         int mid=(i+j+1)/2;
         TreeNode *node=new TreeNode(res[mid]);
         
