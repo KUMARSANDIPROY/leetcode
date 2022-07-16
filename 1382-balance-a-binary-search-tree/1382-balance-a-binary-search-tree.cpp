@@ -22,11 +22,7 @@ public:
     TreeNode* solve(vector<int> res,int i,int j)
     {
         if(i>j) return NULL;
-        // if(i==j)
-        // {
-        //     TreeNode *temp=new TreeNode(res[i]);
-        //     return temp;
-        // }
+      
         int mid=(i+j+1)/2;
         TreeNode *node=new TreeNode(res[mid]);
         
@@ -45,7 +41,7 @@ public:
         int l=res.size();
         int i=0 , j=l-1;
         int mid=(i+j+1)/2;
-        cout<<mid;
+        
         
         TreeNode *root1=new TreeNode(res[mid]);
         
