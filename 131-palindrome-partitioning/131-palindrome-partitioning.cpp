@@ -27,7 +27,7 @@ public:
               {
                   temp.push_back(sub);
                   int l=s.length()-i-1;
-                  string remain=s.substr(i+1,s.length());
+                  string remain=s.substr(i+1,l);
                   solve(remain,temp,ans);
                   temp.pop_back();
               }
