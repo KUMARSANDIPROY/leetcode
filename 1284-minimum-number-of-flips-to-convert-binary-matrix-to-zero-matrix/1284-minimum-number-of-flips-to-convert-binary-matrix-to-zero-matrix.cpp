@@ -4,10 +4,10 @@ int count=10000000;
     int minFlips(vector<vector<int>>& mat)
     {
         int m=mat.size(),n=mat[0].size();
-       
+       map<vector<vector<int>>,int> mp;
         vector<vector<int>> vis(m,vector<int>(n,0));
         
-        int x=helper(mat,vis);
+        int x=helper(mat,vis,mp);
         
         if(x==count)
             return -1;
@@ -16,12 +16,13 @@ int count=10000000;
     }
     
     
-    int helper(vector<vector<int>>& mat,vector<vector<int>> &vis)
+    int helper(vector<vector<int>>& mat,vector<vector<int>> &vis,        map<vector<vector<int>>,int> &mp)
     {
+
         int ans=count;
         if(isZero(mat))
             return 0;
-        
+        if(mp[mat]!=0)  return mp[mat];
         for(int i=0;i<mat.size();i++){
             for(int j=0;j<mat[0].size();j++){
                if(!vis[i][j])
@@ -54,7 +55,7 @@ int count=10000000;
                     
                     mat[i][j]=1-mat[i][j];
                     
-                    ans=min(ans,(1+helper(mat,vis)));
+                    ans=min(ans,(1+helper(mat,vis,mp)));
                     
                     //backtrack now ....
                     
@@ -79,7 +80,7 @@ int count=10000000;
                 }
             }
         }
-        return ans;
+        return mp[mat]=ans;
         
     }
     
