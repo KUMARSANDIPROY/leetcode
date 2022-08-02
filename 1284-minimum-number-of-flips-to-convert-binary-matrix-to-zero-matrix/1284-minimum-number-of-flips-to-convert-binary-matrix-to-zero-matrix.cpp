@@ -16,7 +16,7 @@ int count=10000000;
     }
     
     
-    int helper(vector<vector<int>>& mat,vector<vector<int>>& vis)
+    int helper(vector<vector<int>>& mat,vector<vector<int>> &vis)
     {
         int ans=count;
         if(isZero(mat))
