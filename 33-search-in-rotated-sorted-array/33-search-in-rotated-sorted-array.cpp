@@ -28,7 +28,7 @@ public:
             prev=(mid-1+n)%n;
             next=(mid+1)%n;
                  
-            if(nums[prev]>=nums[mid] && nums[mid]<=nums[next])
+            if(nums[prev]>nums[mid] && nums[mid]<nums[next])
                   break;
            else if(nums[0]<=nums[mid] && nums[mid]<=nums[n-1])//when array is sorted
                 high=mid-1;
