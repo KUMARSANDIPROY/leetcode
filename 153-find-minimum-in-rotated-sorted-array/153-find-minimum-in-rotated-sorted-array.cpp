@@ -15,10 +15,11 @@ public:
             if(nums[prev]>nums[mid] && nums[mid]<nums[next])
                 break;
 //           
-              else if(nums[mid]<=nums[l-1])
+        
+            else if(nums[mid]<=nums[l-1])
                   j=mid-1;
             
-              else if(nums[mid]>=nums[0])
+             else if(nums[mid]>=nums[0])
                   i=mid+1;
             
             
