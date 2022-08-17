@@ -12,7 +12,7 @@ public:
             next=(mid+1)%l;
             // cout<<mid<<prev<<next<<" ";
             
-            if(nums[prev]>=nums[mid] && nums[mid]<=nums[next])
+            if(nums[prev]>nums[mid] && nums[mid]<nums[next])
                 break;
 //           
               else if(nums[mid]<=nums[j])
