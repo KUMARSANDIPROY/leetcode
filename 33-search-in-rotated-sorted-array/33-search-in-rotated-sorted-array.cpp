@@ -30,13 +30,13 @@ public:
                  
             if(nums[prev]>nums[mid] && nums[mid]<nums[next])
                   break;
-           else if(nums[0]<=nums[mid] && nums[mid]<=nums[n-1])//when array is sorted
-                high=mid-1;
-                    
-           else if(nums[0]>nums[mid])
-                high=mid-1;
-           else if(nums[n-1]<nums[mid])
+//            else if(nums[0]<=nums[mid] && nums[mid]<=nums[n-1])//when array is sorted
+//                 high=mid-1;
+           else if(nums[n-1]>=nums[mid])
+                high=mid-1;         
+           else if(nums[0]<=nums[mid])
                 low=mid+1;
+
            
         }
         
