@@ -41,7 +41,8 @@ public:
             // checking for sub-string from ith index to
             // jth index iff str[i+1] to str[j-1] is a
             // palindrome
-            if (table[i + 1][j - 1] && str[i] == str[j]) {
+            if (table[i + 1][j - 1] && str[i] == str[j]) 
+            {
                 table[i][j] = true;
  
                 if (k > maxLength) {
@@ -53,25 +54,7 @@ public:
     }
         
         
-     /*   for(int i=0;i<n;i++)
-        {
-            for(int j=i+2;j<n;j++)
-            {
-                   // palindrome
-                   cout<<i<<j<<table[i + 1][j - 1]<<" ";
-            
-            if (table[i + 1][j - 1] && str[i] == str[j]) {
-                table[i][j] = true;
-                 
-                if (j-i+1 > maxLength) {
-                    start = i;
-                    maxLength = j-i+1;
-                }
-            }
-        }
-
-    }*/
- 
+     
     // return length of LPS
     return str.substr(start,maxLength);
         
