@@ -34,14 +34,14 @@ public:
             }
         }
         
-        for(int i=0;i<=m;i++)
-        {
-            for(int j=0;j<=n;j++)
-            {
-                cout<<dp[i][j]<<" ";
-            }
-            cout<<endl;
-        }
+//         for(int i=0;i<=m;i++)
+//         {
+//             for(int j=0;j<=n;j++)
+//             {
+//                 cout<<dp[i][j]<<" ";
+//             }
+//             cout<<endl;
+//         }
         
         return dp[m][n];
         
