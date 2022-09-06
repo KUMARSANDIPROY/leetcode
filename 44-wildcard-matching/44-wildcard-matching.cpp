@@ -1,15 +1,35 @@
 class Solution {
 public:
-bool isMatch(string s, string p) {
-        vector<vector<char>> mem(s.size()+1,vector<char>(p.size(),-1));
-        return isMatch(0,0,s,p,mem);    
+    bool solve(string &s,string &p,int i,int j,vector<vector<char>> &dp)
+    {
+        if(i==s.length() && j==p.length())
+            return true;
+        if(j==p.length())
+            return false;
+        if(i==s.length())
+        {
+            while(j<p.length())
+            {
+                if(p[j++]!='*')
+                    return false;
+            }
+            return true;
+        }
+        if(dp[i][j]!=-1)  return dp[i][j];
+        if(p[j]=='*')
+        {
+            return dp[i][j]= solve(s,p,i+1,j,dp) || solve(s,p,i,j+1,dp);
+          }  
+        if(p[j]=='?' || p[j]==s[i])
+            return dp[i][j]=solve(s,p,i+1,j+1,dp);
+        else
+            return dp[i][j]=false;
+        
     }
-    bool isMatch(int i, int j, string& s, string& p,vector<vector<char>> &mem) {
-        int sn = s.size();
-        if(j==p.size()) return i==sn;
-        if(mem[i][j]!=-1) return mem[i][j];
-        if(p[j]=='*') return mem[i][j]= isMatch(i,j+1,s,p,mem) || (i<sn && isMatch(i+1,j,s,p,mem));
-        if(i<sn && (p[j]=='?'|| s[i]==p[j])) return mem[i][j]=isMatch(i+1,j+1,s,p,mem);
-        return mem[i][j]=0;
+    
+    bool isMatch(string s, string p) {
+        
+        vector<vector<char>> dp(s.length(),vector<char>(p.length(),-1));
+        return solve(s,p,0,0,dp);
     }
 };
