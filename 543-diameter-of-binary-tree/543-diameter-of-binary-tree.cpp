@@ -15,9 +15,9 @@ public:
     {
         if(node==NULL)  return 0;
         
-        int l=solve(node->right,ans);
-        int r=solve(node->left,ans);
-        cout<<node->val<<" "<<l<<r<<"\n";
+        int r=solve(node->right,ans);
+        int l=solve(node->left,ans);
+       // cout<<node->val<<" "<<l<<r<<"\n";
         ans=max(ans,l+r);
         return 1+max(l,r);
         
