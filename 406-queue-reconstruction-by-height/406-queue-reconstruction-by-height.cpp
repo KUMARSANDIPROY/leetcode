@@ -16,8 +16,7 @@ public:
         // {
         //     cout<<people[i][0]<<people[i][1]<<" ";
         // }
-        cout<<endl;
-        vector<int> rvis(n,0);
+       
         for(int i=1;i<n;i++)
         {
             int x=people[i][0];
