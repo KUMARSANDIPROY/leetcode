@@ -1,46 +1,41 @@
 class Solution {
 public:
-    void h(int i,string s,unordered_set<string>&st, vector<string>&d,vector<string>&a,string tt)
+    
+    void solve(string s,vector<string> dict,int idx,string str,vector<string> &res)
     {
-        if(i==s.size())
+        if(idx==s.length())
         {
-            string t;
-            for(auto x : d)t=t+x+" ";
-            t.pop_back();
-            a.push_back(t);
-            return ;
+           //cout<<"hgj "<<str<<endl;
+            res.push_back(str);
+            return;
         }
         
-        // if(dp[i]!=-1)return dp[i];
-        
-        string t;
-        for(int j=i;j<s.size();j++)
+        for(int i=idx;i<s.length();i++)
         {
-            t=t+s[j];
-            if(st.find(t)!=st.end())
+            string sub=s.substr(idx,i-idx+1);
+            if(find(dict.begin(),dict.end(),sub)!=dict.end())
             {
-                d.push_back(t);
-                h(j+1,s,st,d,a,t);
-                d.pop_back();
+                string temp=str;
+                
+                if(temp.empty()==false)
+                    temp+=" ";
+                temp+=sub;
+                //cout<<temp<<i<<endl;
+                solve(s,dict,i+1,temp,res);
             }
+            
         }
         
     }
-    vector<string>wordBreak(string s, vector<string>& wordDict) 
-    {
-        ios::sync_with_stdio(0); cout.tie(0); cin.tie(0);
-        int n=s.size();
-        unordered_set<string>st;
-        for(auto a:wordDict)st.insert(a);
-        vector<string>a;
+    
+    vector<string> wordBreak(string s, vector<string>& wordDict) {
         
-        vector<string>d;
-        h(0,s,st,d,a,"");
+        string str="";
+        vector<string> res;
         
-        return a;
+        solve(s,wordDict,0,str,res);
+        
+        //sort(res.begin(),res.end());
+        return res;
     }
-//     vector<string> wordBreak(string s, vector<string>& wordDict) 
-//     {
-        
-//     }
 };
