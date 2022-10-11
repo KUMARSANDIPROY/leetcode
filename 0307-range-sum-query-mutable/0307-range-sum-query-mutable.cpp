@@ -1,8 +1,8 @@
 class NumArray {
 public:
-      int N;
-      vector<int> bits;
-     vector<int> temp;
+    int N;
+    vector<int> bits;
+    vector<int> temp;
     NumArray(vector<int>& nums) {
         
          N=nums.size();
@@ -11,17 +11,17 @@ public:
         
         for(int i=0;i<N;i++)
         {
-            updateUtill(i+1,temp[i]);
+            updateUtill(i+1,nums[i]);
         }
        
     }
     void updateUtill(int index,int val)
     {
-       // val=val-temp[index];
+      
         for(int i=index ;i<=N;i+=(i&-i))
         {
             bits[i]+=val;
-            //cout<<i<<": "<<val<<endl;
+           
         }
     }
     void update(int index, int val) {
