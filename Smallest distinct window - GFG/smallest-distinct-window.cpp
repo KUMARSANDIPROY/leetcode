@@ -30,13 +30,11 @@ class Solution{
             }
             
             else if(count==n)
-            {   while(count==n)
-                {
-                    ans=min(ans,j-i);
-                    if(mp[str[i]]==1)  count--;
-                    mp[str[i]]--;
-                    i++;
-                }
+            {
+                ans=min(ans,j-i);
+                if(mp[str[i]]==1)  count--;
+                mp[str[i]]--;
+                i++;
             }
         }
         while(count==n)
