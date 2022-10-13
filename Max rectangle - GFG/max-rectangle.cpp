@@ -47,7 +47,7 @@ class Solution{
           res.push_back(l);
         stack<int> st;
         st.push(0);
-        for(int i=0;i<l;i++)
+        for(int i=1;i<l;i++)
         {
             if(!st.empty() &&v[i]>v[st.top()])
                st.push(i);
