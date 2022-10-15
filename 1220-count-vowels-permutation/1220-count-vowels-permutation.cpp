@@ -40,7 +40,7 @@ public:
 //         for(char ch:v)
 //            ans=(ans+solve(1,n,ans,ch,mp,dp))%mod;
 //         return ans;
-         long a = 1, e = 1, i = 1, o = 1, u = 1, mod = pow(10, 9)+7;
+        long a = 1, e = 1, i = 1, o = 1, u = 1, mod = pow(10, 9)+7;
         long a2, e2, i2, o2, u2; 
         
         for (int j = 2; j <= n; j++) {
