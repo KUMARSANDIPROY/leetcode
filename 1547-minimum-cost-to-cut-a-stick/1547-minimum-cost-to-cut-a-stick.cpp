@@ -5,7 +5,7 @@ public:
         if(i>j) return 0;
         if(dp[i][j]!=-1) return dp[i][j];
         int mini=1e9;
-        for(int ind=i;ind<=j;ind++)
+        for(int ind=i;ind<= j;ind++)
         {
             int cost=cuts[j+1]-cuts[i-1]+solve(cuts,i,ind-1,dp)+solve(cuts,ind+1,j,dp);
             mini=min(mini,cost);
@@ -23,7 +23,7 @@ public:
        // return solve(cuts,1,c,dp);
         for(int i=c;i>=1;i--)
         {
-            for(int j=1;j<=c;j++)
+            for(int j=i;j<=c;j++)
             {
                 int mini=1e9;
                 if(i>j) continue;
