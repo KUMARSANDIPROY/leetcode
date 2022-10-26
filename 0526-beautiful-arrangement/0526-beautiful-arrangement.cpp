@@ -1,7 +1,7 @@
 class Solution {
 public:
     int count=0;
-      void fun(vector<int>&nums,int index)
+      void fun(int nums[],int index)
     {
         if(index==0)
         {
@@ -21,9 +21,11 @@ public:
        
     }
    int countArrangement(int n) {
-        vector<int>nums;
+       // vector<int>nums;
+       int nums[n+1];
         for(int i=0;i<=n;i++)
-            nums.push_back(i);
+            nums[i]=i;
+            //nums.push_back(i);
         count=0;
         fun(nums,n);
         return count;
