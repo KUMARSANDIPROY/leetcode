@@ -1,38 +1,33 @@
-
-int count=0;
-      void fun(int nums[],int index)
+int count;
+void solve(int nums[],int n)
+{
+    if(n==0)
     {
-        if(index==0)
-        {
-            count+=1;
-            return;
-        }
-        
-        
-        for(int i=index;i>0;i--)
-        {
-           // swap(nums[index],nums[i]);
-            int temp=nums[i];
-            nums[i]=nums[index];
-            nums[index]=temp;
-            
-            if((nums[index]%(index)==0)||((index)%nums[index]==0))
-             fun(nums,index-1);
-             temp=nums[i];
-            nums[i]=nums[index];
-            nums[index]=temp;
-           // swap(nums[index],nums[i]);
-        }
-        
-       
+        count+=1;
+        return;
     }
-   int countArrangement(int n) {
     
-        int nums[n+1];
-        for(int i=0;i<=n;i++)
-            nums[i]=i;
-     
-        count=0;
-        fun(nums,n);
-        return count;
+    for(int idx=n;idx>0;idx--)
+    {
+        int temp=nums[idx];
+        nums[idx]=nums[n];
+        nums[n]=temp;
+        if(((n)%nums[n]==0) || (nums[n]%(n)==0))
+            solve(nums,n-1);
+        temp=nums[idx];
+        nums[idx]=nums[n];
+        nums[n]=temp;
     }
+    
+    
+}
+
+int countArrangement(int n){
+
+    int nums[n+1];
+    for(int i=0;i<=n;i++)
+        nums[i]=i;
+    count=0;
+    solve(nums,n);
+    return count;
+}
