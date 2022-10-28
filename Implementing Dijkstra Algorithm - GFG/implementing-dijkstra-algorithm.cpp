@@ -20,12 +20,12 @@ class Solution
         
         while(!q.empty())
         {
-             // int d=q.top().first;
+              int d=q.top().first;
               int node=q.top().second;
               q.pop();
               for(auto it:adj[node])
               {
-                  if(dist[it[0]]> dist[node] + it[1])
+                  if(dist[it[0]]> d + it[1])
                   {
                       dist[it[0]]=dist[node]+it[1];
                       q.push({dist[it[0]],it[0]});
