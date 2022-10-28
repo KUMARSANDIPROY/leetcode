@@ -1,8 +1,8 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include<bits/stdc++.h>
 using namespace std;
 
- // } Driver Code Ends
+// } Driver Code Ends
 class Solution
 {
 	public:
@@ -11,30 +11,34 @@ class Solution
     vector <int> dijkstra(int V, vector<vector<int>> adj[], int S)
     {
         // Code here
+        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> q;
         vector<int> dist(V+1,INT_MAX);
+        
         dist[S]=0;
-        priority_queue<pair<int,int>,vector<pair<int,int>>,greater<pair<int,int>>> q;//<dist,node>
         q.push({0,S});
+        
+        
         while(!q.empty())
         {
-            int node=q.top().second;
-            int d=q.top().first;
-            q.pop();
-            for(vector<int> it:adj[node])
-            {
-                if(dist[it[0]]>dist[node]+it[1])
-                 { dist[it[0]]=dist[node]+it[1];
-                
-                   q.push({it[1],it[0]});  
-                 }
-            }
+             // int d=q.top().first;
+              int node=q.top().second;
+              q.pop();
+              for(auto it:adj[node])
+              {
+                  if(dist[it[0]]> dist[node] + it[1])
+                  {
+                      dist[it[0]]=dist[node]+it[1];
+                      q.push({dist[it[0]],it[0]});
+                  }
+              }
         }
+        
         return dist;
     }
 };
 
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 
 int main()
@@ -71,4 +75,5 @@ int main()
     return 0;
 }
 
-  // } Driver Code Ends
+
+// } Driver Code Ends
