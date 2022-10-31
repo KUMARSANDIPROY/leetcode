@@ -9,27 +9,25 @@ using namespace std;
 
 class Solution {
   public:
+    vector<vector<vector<int>>> dp;
+    int solve(int A[],int i,int trans,int N,int total,int buy)
+    {
+        if(i==N || trans==total)  return 0;
+        
+        
+        if(dp[i][trans][buy]!=-1)  return dp[i][trans][buy];
+        if(buy==1)
+           return dp[i][trans][buy]= max(-A[i]+solve(A,i+1,trans+1,N,total,0), solve(A,i+1,trans,N,total,1) );
+        else
+            return dp[i][trans][buy]=max(A[i]+solve(A,i+1,trans+1,N,total,1), solve(A,i+1,trans,N,total,0) );
+    }
+  
     int maxProfit(int K, int N, int A[]) {
         // code here
         
         int total=2*K;
-        vector<vector<int>> dp(N+1,vector<int>(total+1,0));
-        
-        for(int i=N-1;i>=0;i--)
-        {
-            for(int j=total-1;j>=0;j--)
-            {
-                if(j%2==0)
-                {
-                    dp[i][j]=max(-A[i] + dp[i+1][j+1], dp[i+1][j]);
-                    
-                }
-                else
-                    dp[i][j]=max(A[i] + dp[i+1][j+1], dp[i+1][j]);
-            }
-        }
-        
-        return dp[0][0];
+        dp.resize(N+1,vector<vector<int>>(total+1,vector<int>(2,-1)));
+        return solve(A,0,0,N,total,1);
     }
 };
 
