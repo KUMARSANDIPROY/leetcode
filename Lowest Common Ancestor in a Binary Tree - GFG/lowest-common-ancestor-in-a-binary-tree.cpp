@@ -1,4 +1,4 @@
-// { Driver Code Starts
+//{ Driver Code Starts
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -18,7 +18,7 @@ struct Node
     }
 };
 
- // } Driver Code Ends
+// } Driver Code Ends
 /* A binary tree node
 
 struct Node
@@ -37,58 +37,32 @@ struct Node
 class Solution
 {
     public:
-    //Function to return the lowest common ancestor in a Binary Tree.
-    vector<Node*>v1,v2;
-    void solve(Node* root ,int n1,int n2,vector<Node*> v)
+    
+    Node* solve(Node* root ,int n1 ,int n2 )
     {
-        if(!root) return;
+        if(root==NULL)  return NULL;
         
-        v.push_back(root);
-        if(root->data==n1)       
-        {
-            //v.push_back(root->data);
-            v1=v;
-            
-        }
-         if(root->data==n2)       
-        {
-            
-            v2=v;
-        }
-        solve(root->left,n1,n2,v);
-        solve(root->right,n1,n2,v);
+        if(root->data==n1 || root->data==n2)  return root;
         
+        Node *left=solve(root->left,n1,n2);
+        Node *right=solve(root->right,n1,n2);
+        if(left==NULL && right==NULL)  return NULL;
+        if(left!=NULL && right!=NULL)  return root;
+        
+        if(!right) return left;
+        if(!left)  return right;
     }
     
+    //Function to return the lowest common ancestor in a Binary Tree.
     Node* lca(Node* root ,int n1 ,int n2 )
     {
        //Your code here 
-       vector<Node*> v;
-       solve(root,n1,n2,v);
-       //solve(root,n2,v);
-       Node* flag=NULL;;
        
-     /*  for(Node* i:v1)
-         cout<<i->data<<" ";
-         cout<<endl;  
-       for(Node* i:v2)
-         cout<<i->data<<" ";   
-         
-         cout<<endl<<endl;*/
-     int l=min(v1.size(),v2.size());
-     int i=0;
-     while(i<l)
-     {
-         if(v1[i]!=v2[i])
-           break;
-         i++;  
-     }
-     return v1[i-1];
-       
+       return solve(root,n1,n2);
     }
 };
 
-// { Driver Code Starts.
+//{ Driver Code Starts.
 
 Node* newNode(int val)
 {
@@ -194,4 +168,5 @@ int main() {
     }
     return 0;
 }
-  // } Driver Code Ends
+
+// } Driver Code Ends
